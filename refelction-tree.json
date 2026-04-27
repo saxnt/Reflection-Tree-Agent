@@ -1,0 +1,1072 @@
+{
+    "metadata": {
+        "title": "Daily Reflection Tree",
+        "description": "A deterministic reflection tool using three psychological axes: Locus of Control, Contribution vs Entitlement, and Self-Centric vs Other-Centric",
+        "axes": {
+            "axis1": "Locus of Control (Internal vs External agency)",
+            "axis2": "Contribution Orientation (Giving vs Expecting)",
+            "axis3": "Radius of Concern (Self-Centric vs Other-Centric)"
+        }
+    },
+    "nodes": [
+        {
+            "id": "START",
+            "parentId": null,
+            "type": "start",
+            "text": "Good evening. Let's look at your day. I'll ask you a few questions to help you see how you showed up today.",
+            "options": [],
+            "target": "Q1_FILMMAKING",
+            "signal": null
+        },
+        {
+            "id": "Q1_FILMMAKING",
+            "parentId": "START",
+            "type": "question",
+            "text": "You saw something inspiring today — maybe a film reel, a project, something someone else created. What went through your head?",
+            "options": [
+                "A) I thought about what I'd need to actually do it — gear, skills, setup",
+                "B) I felt fired up and wanted to start right now, even without everything figured out",
+                "C) I thought 'that's cool, maybe someday' and moved on"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q1_DECISION",
+            "parentId": "Q1_FILMMAKING",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:Q1a_RESOURCES;answer=B:Q1b_IMPATIENT;answer=C:Q1c_SOMEDAY",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q1a_RESOURCES",
+            "parentId": "Q1_DECISION",
+            "type": "question",
+            "text": "You said you thought about what you'd need. Of those things — gear, skills, time — which one could you realistically start without right now?",
+            "options": [
+                "A) Honestly? Probably all of it. I could just start with my phone",
+                "B) The team maybe, but gear and good quality feel non-negotiable",
+                "C) I'm not sure. Feels like I need all of it"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q1a_DECISION",
+            "parentId": "Q1a_RESOURCES",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R1a_AGENCY;answer=B:R1a_GATEKEEPING;answer=C:R1a_BLOCKED",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R1a_AGENCY",
+            "parentId": "Q1a_DECISION",
+            "type": "reflection",
+            "text": "You just realized something important: you could start right now, with what you have. That's agency — not waiting for perfect conditions, but working with what's available. Most creators start before they're ready.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R1a_GATEKEEPING",
+            "parentId": "Q1a_DECISION",
+            "type": "reflection",
+            "text": "You're setting a standard — 'good gear is non-negotiable.' That's honest. But notice: you're waiting for external conditions to be perfect before you act. What if you started imperfectly first, then upgraded?",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R1a_BLOCKED",
+            "parentId": "Q1a_DECISION",
+            "type": "reflection",
+            "text": "You feel like you need everything to be right before you start. That's understandable — quality matters. But starting is also a skill. Most creators learned by starting badly, not by waiting until conditions were perfect.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "Q1b_IMPATIENT",
+            "parentId": "Q1_DECISION",
+            "type": "question",
+            "text": "You felt fired up to start immediately. What would happen if you let yourself actually do it — imperfectly, without waiting?",
+            "options": [
+                "A) That's freeing. I could just start and learn as I go",
+                "B) It would feel cheap. I'd rather wait until I can do it right",
+                "C) I'd start but then get frustrated when it's not good"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q1b_DECISION",
+            "parentId": "Q1b_IMPATIENT",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R1b_ITERATE;answer=B:R1b_PERFECTIONIST;answer=C:R1b_FRUSTRATED",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R1b_ITERATE",
+            "parentId": "Q1b_DECISION",
+            "type": "reflection",
+            "text": "You see it: the fastest way to get good is to start badly and improve. That's internal locus — taking action and learning from feedback. The gap between your first and tenth project will be huge.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R1b_PERFECTIONIST",
+            "parentId": "Q1b_DECISION",
+            "type": "reflection",
+            "text": "You want to do it right. That's integrity. But notice the cost: the waiting. You're trading off learning for the illusion of control. Real skill comes from doing, failing, and doing again.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R1b_FRUSTRATED",
+            "parentId": "Q1b_DECISION",
+            "type": "reflection",
+            "text": "You know yourself: you'd start with energy, hit reality, and get frustrated. That's honest self-awareness. Question is: can you sit with the frustration and keep going anyway? Most people can't, so they don't start.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "Q1c_SOMEDAY",
+            "parentId": "Q1_DECISION",
+            "type": "question",
+            "text": "You said 'someday.' Do you actually believe someday will come, or are you deferring because you're scared or tired right now?",
+            "options": [
+                "A) Someday will come when life slows down a bit",
+                "B) Honestly, I'm using 'someday' to avoid starting now",
+                "C) I'm genuinely interested, but other things take priority"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q1c_DECISION",
+            "parentId": "Q1c_SOMEDAY",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R1c_WAITING;answer=B:R1c_AVOIDANCE;answer=C:R1c_PRIORITY",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R1c_WAITING",
+            "parentId": "Q1c_DECISION",
+            "type": "reflection",
+            "text": "You're waiting for external conditions to change — for life to slow down. But life doesn't slow down. The people who create are the ones who create despite the chaos, not after it ends. Someday never comes.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R1c_AVOIDANCE",
+            "parentId": "Q1c_DECISION",
+            "type": "reflection",
+            "text": "That's brave to admit. You're using 'someday' to avoid the real fear — of starting, failing, or not being as good as you imagined. That's human. The question is: are you going to stay in that fear, or name it and act anyway?",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R1c_PRIORITY",
+            "parentId": "Q1c_DECISION",
+            "type": "reflection",
+            "text": "You're clear: other things come first. That's a choice. Fair enough. But notice: it's still a choice you're making — actively prioritizing other things over this. That's internal locus, even if the outcome is deferral.",
+            "options": [],
+            "target": "BRIDGE_1_2",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "BRIDGE_1_2",
+            "parentId": null,
+            "type": "bridge",
+            "text": "You see how you approach new things — whether you see yourself as the actor, or whether you wait for conditions to be right. Now let's shift: to what you actually gave today.",
+            "options": [],
+            "target": "Q2_MOM_SNAP",
+            "signal": null
+        },
+        {
+            "id": "Q2_MOM_SNAP",
+            "parentId": "BRIDGE_1_2",
+            "type": "question",
+            "text": "You snapped at someone today over something small. In that moment, what was really going on?",
+            "options": [
+                "A) I felt guilty — I know them well enough to manage my patience, and I didn't",
+                "B) They were frustrating me, and I was under stress. They should have understood",
+                "C) I just... snapped. Stress built up and they were the trigger"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q2_DECISION",
+            "parentId": "Q2_MOM_SNAP",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:Q2a_GUILT;answer=B:Q2b_BLAME;answer=C:Q2c_OVERFLOW",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q2a_GUILT",
+            "parentId": "Q2_DECISION",
+            "type": "question",
+            "text": "You felt you should've known better. What stopped you from managing it in that moment?",
+            "options": [
+                "A) I just didn't want to hold back. I chose to react",
+                "B) I didn't have the energy or patience left",
+                "C) I knew I should, but in the moment I couldn't"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q2a_DECISION",
+            "parentId": "Q2a_GUILT",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R2a_CHOICE;answer=B:R2a_DEPLETED;answer=C:R2a_POWERLESS",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R2a_CHOICE",
+            "parentId": "Q2a_DECISION",
+            "type": "reflection",
+            "text": "You owned it: you chose to react. That's internal locus — you see your agency, even in the moment you lost control. That awareness is the first step to choosing differently next time.",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R2a_DEPLETED",
+            "parentId": "Q2a_DECISION",
+            "type": "reflection",
+            "text": "Your tank was empty. Fair. Stressed, tired people have less capacity. The question moving forward: what would it take to refill the tank before it gets to empty? Rest? Talking to someone? Taking a break?",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R2a_POWERLESS",
+            "parentId": "Q2a_DECISION",
+            "type": "reflection",
+            "text": "You felt powerless in the moment — like you couldn't choose differently even though you knew you should. That's a gap between intention and action. What would help you close that gap?",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "Q2b_BLAME",
+            "parentId": "Q2_DECISION",
+            "type": "question",
+            "text": "You said they should have understood you were stressed. When you told them you're under pressure, did they actually fail to understand, or did you need something from them they couldn't give?",
+            "options": [
+                "A) I didn't actually tell them — I expected them to just know I was stressed",
+                "B) I told them, but they still didn't cut me slack. That hurt",
+                "C) I realize now I was expecting them to manage my stress, not me"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q2b_DECISION",
+            "parentId": "Q2b_BLAME",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R2b_EXPECTATION;answer=B:R2b_HURT;answer=C:R2b_RESPONSIBILITY",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R2b_EXPECTATION",
+            "parentId": "Q2b_DECISION",
+            "type": "reflection",
+            "text": "You expected them to read your mind. That's a tough one — because people aren't mind readers. You asked for understanding without actually asking for it. That's entitlement: expecting grace without communication.",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "R2b_HURT",
+            "parentId": "Q2b_DECISION",
+            "type": "reflection",
+            "text": "You communicated, they still didn't come through, and that hurt. Fair enough. Question: is it their job to manage your stress? Or is the hurt about them not being what you needed in that moment?",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "R2b_RESPONSIBILITY",
+            "parentId": "Q2b_DECISION",
+            "type": "reflection",
+            "text": "That's a big realization: you were outsourcing your stress management to them. They can't carry that for you. You have to. That's moving from entitlement to ownership.",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis2:contribution"
+        },
+        {
+            "id": "Q2c_OVERFLOW",
+            "parentId": "Q2_DECISION",
+            "type": "question",
+            "text": "The stress built up and they were the trigger. When stress piles up like that, do you usually have a way to release it, or does it just explode?",
+            "options": [
+                "A) I have ways to release it, but I don't actually use them regularly",
+                "B) I don't really have a practice. It just builds until it blows",
+                "C) I try, but nothing really works"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q2c_DECISION",
+            "parentId": "Q2c_OVERFLOW",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R2c_AWARE;answer=B:R2c_UNMANAGED;answer=C:R2c_STUCK",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R2c_AWARE",
+            "parentId": "Q2c_DECISION",
+            "type": "reflection",
+            "text": "You know what helps, but you don't do it. That's internal locus — you can see the path, you're just not walking it. What would it take to actually use those outlets before you overflow?",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R2c_UNMANAGED",
+            "parentId": "Q2c_DECISION",
+            "type": "reflection",
+            "text": "You don't have a practice. So the pressure just accumulates until you explode on someone innocent. That's real. Next step: what's one small thing you could do regularly to release pressure before it explodes? Walking? Writing? Talking to someone?",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R2c_STUCK",
+            "parentId": "Q2c_DECISION",
+            "type": "reflection",
+            "text": "Nothing seems to work. That's frustrating. But notice: you're saying nothing works, not that you've tried everything. What's one thing you haven't tried yet that might help?",
+            "options": [],
+            "target": "BRIDGE_2_3",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "BRIDGE_2_3",
+            "parentId": null,
+            "type": "bridge",
+            "text": "You see how you respond under pressure — what you're responsible for, what you're blaming others for. Now the last shift: from how you show up, to who you're thinking about.",
+            "options": [],
+            "target": "Q3_WALK_FRIEND",
+            "signal": null
+        },
+        {
+            "id": "Q3_WALK_FRIEND",
+            "parentId": "BRIDGE_2_3",
+            "type": "question",
+            "text": "You decided to go for a walk. You could have gone alone with music, or gone while on a call with a friend. Which did you choose, and how does that feel now?",
+            "options": [
+                "A) I called my friend while walking. It felt energizing to stay connected",
+                "B) I walked alone with music. I needed that time to decompress without distraction",
+                "C) I'm not sure. Honestly doesn't matter much either way"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q3_DECISION",
+            "parentId": "Q3_WALK_FRIEND",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:Q3a_CONNECTED;answer=B:Q3b_ALONE;answer=C:Q3c_NEUTRAL",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q3a_CONNECTED",
+            "parentId": "Q3_DECISION",
+            "type": "question",
+            "text": "You stayed connected. But notice: you combined your self-care (the walk) with someone else's need (talking). Did you get what you needed from the walk?",
+            "options": [
+                "A) Yes. Staying connected made it better",
+                "B) Sort of. I needed alone time, but it was worth it for them",
+                "C) Honestly, I'm not sure. Maybe I gave up my decompression time"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q3a_DECISION",
+            "parentId": "Q3a_CONNECTED",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R3a_WIN_WIN;answer=B:R3a_SACRIFICE;answer=C:R3a_UNCERTAIN",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R3a_WIN_WIN",
+            "parentId": "Q3a_DECISION",
+            "type": "reflection",
+            "text": "You found the balance: your need (walk) + their need (connection). That's other-centric thinking that didn't cost you. That's rare and valuable.",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:other"
+        },
+        {
+            "id": "R3a_SACRIFICE",
+            "parentId": "Q3a_DECISION",
+            "type": "reflection",
+            "text": "You gave up your decompression time for them. That's generous. But notice: you're prioritizing their need over your own. That works sometimes, but not if it's a pattern.",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:other"
+        },
+        {
+            "id": "R3a_UNCERTAIN",
+            "parentId": "Q3a_DECISION",
+            "type": "reflection",
+            "text": "You're not sure if you got what you needed. That's worth paying attention to. Next time: ask yourself before you pick up the phone — am I ready to talk, or do I need silence first?",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "Q3b_ALONE",
+            "parentId": "Q3_DECISION",
+            "type": "question",
+            "text": "You chose to be alone. That's self-care. But I'm curious: when was the last time you prioritized connection over alone time?",
+            "options": [
+                "A) Pretty recently. I balance them well",
+                "B) Honestly, I don't remember. I tend to choose alone time",
+                "C) I'm not sure. I don't think about it much"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q3b_DECISION",
+            "parentId": "Q3b_ALONE",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R3b_BALANCED;answer=B:R3b_ISOLATED;answer=C:R3b_UNAWARE",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R3b_BALANCED",
+            "parentId": "Q3b_DECISION",
+            "type": "reflection",
+            "text": "You're balancing your need for solitude with connection. That's healthy. Self-care isn't selfish — it's necessary. And you're doing it while staying connected to others.",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "R3b_ISOLATED",
+            "parentId": "Q3b_DECISION",
+            "type": "reflection",
+            "text": "You tend to choose alone time. That's valid. But notice: if it's always your choice, you might be avoiding the messiness of connection. Are you protecting yourself, or are you missing people?",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "R3b_UNAWARE",
+            "parentId": "Q3b_DECISION",
+            "type": "reflection",
+            "text": "You don't think much about it. That's honest. But it's worth noticing: are you naturally self-sufficient, or are you unconsciously keeping people at a distance?",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "Q3c_NEUTRAL",
+            "parentId": "Q3_DECISION",
+            "type": "question",
+            "text": "You said it doesn't matter. I'm curious: when you make choices like that, do you usually feel neutral, or are you avoiding thinking about what you actually want?",
+            "options": [
+                "A) I genuinely don't have a strong preference. Either way is fine",
+                "B) I avoid deciding because I don't want to disappoint anyone",
+                "C) I'm not sure. I don't really think about what I want"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q3c_DECISION",
+            "parentId": "Q3c_NEUTRAL",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R3c_FLEXIBLE;answer=B:R3c_PLEASER;answer=C:R3c_DISCONNECTED",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R3c_FLEXIBLE",
+            "parentId": "Q3c_DECISION",
+            "type": "reflection",
+            "text": "You're genuinely flexible. That's a strength. You can adapt to what's needed without feeling resentful. That's other-centric without being a doormat.",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:other"
+        },
+        {
+            "id": "R3c_PLEASER",
+            "parentId": "Q3c_DECISION",
+            "type": "reflection",
+            "text": "You're avoiding the choice to avoid disappointing people. That's self-sacrifice disguised as neutrality. But you do have preferences — you're just suppressing them to keep the peace.",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:other"
+        },
+        {
+            "id": "R3c_DISCONNECTED",
+            "parentId": "Q3c_DECISION",
+            "type": "reflection",
+            "text": "You don't think much about what you want. That might be okay in small moments, but over time it can lead to resentment. What would happen if you started noticing your own preferences?",
+            "options": [],
+            "target": "Q4_MOM_RANTING",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "Q4_MOM_RANTING",
+            "parentId": null,
+            "type": "question",
+            "text": "Your mom was upset with you this morning. You took it personally and threw yourself into work. What were you actually trying to prove?",
+            "options": [
+                "A) That I'm capable and responsible, and I don't deserve to be criticized",
+                "B) That my value isn't defined by her mood, and I can do good work anyway",
+                "C) That I'm not the person she thinks I am"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q4_DECISION",
+            "parentId": "Q4_MOM_RANTING",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:Q4a_DEFENSIVE;answer=B:Q4b_INDEPENDENT;answer=C:Q4c_REBUTTAL",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q4a_DEFENSIVE",
+            "parentId": "Q4_DECISION",
+            "type": "question",
+            "text": "You were defending against the criticism. Fair — it hurt. But did working harder actually address what she was upset about, or did it just make you feel better?",
+            "options": [
+                "A) It didn't address the issue, but I felt like I was doing something productive",
+                "B) I was hoping the results would speak for themselves",
+                "C) Honestly, I was just trying to prove her wrong"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q4a_DECISION",
+            "parentId": "Q4a_DEFENSIVE",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R4a_AVOIDANCE;answer=B:R4a_HOPE;answer=C:R4a_SPITE",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R4a_AVOIDANCE",
+            "parentId": "Q4a_DECISION",
+            "type": "reflection",
+            "text": "You felt productive but didn't actually address the conflict. That's a pattern: work harder instead of communicating. It feels good in the moment, but it doesn't resolve anything.",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "R4a_HOPE",
+            "parentId": "Q4a_DECISION",
+            "type": "reflection",
+            "text": "You were hoping the results would convince her. That's still proving something — trying to change her mind through action instead of words. What if you just talked to her instead?",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "R4a_SPITE",
+            "parentId": "Q4a_DECISION",
+            "type": "reflection",
+            "text": "You were trying to prove her wrong. That's ego defending itself. Underneath, you were hurt and wanted her to see she was unfair. That's human. But proving her wrong won't heal the hurt.",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "Q4b_INDEPENDENT",
+            "parentId": "Q4_DECISION",
+            "type": "question",
+            "text": "You worked to show your value isn't defined by her mood. Did you actually believe that, or were you hoping it would make her understand?",
+            "options": [
+                "A) I genuinely believe my value isn't in her judgment",
+                "B) I wanted to believe it, but I was also hoping she'd see",
+                "C) Honestly, I was doing it so she'd notice and approve"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q4b_DECISION",
+            "parentId": "Q4b_INDEPENDENT",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R4b_SECURE;answer=B:R4b_MIXED;answer=C:R4b_SEEKING",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R4b_SECURE",
+            "parentId": "Q4b_DECISION",
+            "type": "reflection",
+            "text": "You actually believe your value isn't in her judgment. That's internal locus — you know who you are independent of anyone's approval. That's rare and strong.",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R4b_MIXED",
+            "parentId": "Q4b_DECISION",
+            "type": "reflection",
+            "text": "You're in the middle: wanting independence but still hoping for her approval. That's honest. Most people are there. The question is: which one are you actually working toward?",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R4b_SEEKING",
+            "parentId": "Q4b_DECISION",
+            "type": "reflection",
+            "text": "You were seeking her approval by proving yourself. That's external locus: your value depends on her seeing your work. What if your work was enough just because you did it?",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "Q4c_REBUTTAL",
+            "parentId": "Q4_DECISION",
+            "type": "question",
+            "text": "You were rebutting her claim about who you are. But deep down, do you actually believe what she said, or were you just hurt?",
+            "options": [
+                "A) She was partly right. It stung because there was truth in it",
+                "B) She was completely wrong. I wanted to prove it",
+                "C) I'm not sure. It hurt so much I couldn't think clearly"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q4c_DECISION",
+            "parentId": "Q4c_REBUTTAL",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R4c_HONEST;answer=B:R4c_DEFENDED;answer=C:R4c_CONFUSED",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R4c_HONEST",
+            "parentId": "Q4c_DECISION",
+            "type": "reflection",
+            "text": "You can see the truth in the criticism even when it hurts. That's maturity. You're not defending, you're learning. That's internal locus — you can own your flaws without it destroying your worth.",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R4c_DEFENDED",
+            "parentId": "Q4c_DECISION",
+            "type": "reflection",
+            "text": "You were defending against an attack. That's human. But if she was completely wrong, why did it hurt so much? Usually it stings because there's a sliver of truth.",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R4c_CONFUSED",
+            "parentId": "Q4c_DECISION",
+            "type": "reflection",
+            "text": "The hurt was too much to think clearly. That's understandable. When you have distance from it, it might be clearer. What's one thing she said that could be true?",
+            "options": [],
+            "target": "Q5_REEL_COMPARISON",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "Q5_REEL_COMPARISON",
+            "parentId": null,
+            "type": "question",
+            "text": "You compared your work to someone more advanced. What did that make you feel?",
+            "options": [
+                "A) Inspired. I can see myself getting there with practice",
+                "B) Discouraged. They're just naturally better than me",
+                "C) Jealous. I want what they have"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q5_DECISION",
+            "parentId": "Q5_REEL_COMPARISON",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:Q5a_INSPIRED;answer=B:Q5b_DISCOURAGED;answer=C:Q5c_JEALOUS",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q5a_INSPIRED",
+            "parentId": "Q5_DECISION",
+            "type": "question",
+            "text": "You felt inspired and saw a path. Did you actually take a step toward that path today, or was it just motivation that faded?",
+            "options": [
+                "A) I started something, even small",
+                "B) I felt motivated but didn't act",
+                "C) I made a plan to start later"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q5a_DECISION",
+            "parentId": "Q5a_INSPIRED",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R5a_ACTION;answer=B:R5a_FEELING;answer=C:R5a_PROMISE",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R5a_ACTION",
+            "parentId": "Q5a_DECISION",
+            "type": "reflection",
+            "text": "You turned inspiration into action. That's internal locus — taking responsibility for closing the gap between where you are and where you want to be. Most people feel inspired and do nothing.",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R5a_FEELING",
+            "parentId": "Q5a_DECISION",
+            "type": "reflection",
+            "text": "The motivation faded by evening. That's real. But notice: you had the spark. What would it take to act on the spark in the moment, instead of waiting for sustained motivation?",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R5a_PROMISE",
+            "parentId": "Q5a_DECISION",
+            "type": "reflection",
+            "text": "You promised yourself you'd start later. That's tomorrow's problem. What would it take to start today, in the next hour, even for five minutes?",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "Q5b_DISCOURAGED",
+            "parentId": "Q5_DECISION",
+            "type": "question",
+            "text": "You felt they're naturally better. Do you actually believe that, or are you underestimating the work they put in?",
+            "options": [
+                "A) I know they probably worked hard, but the gap still feels impossible",
+                "B) They're just talented. I'm not",
+                "C) Honestly, I don't know. Might be talent, might be work"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q5b_DECISION",
+            "parentId": "Q5b_DISCOURAGED",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R5b_GAP;answer=B:R5b_FIXED;answer=C:R5b_UNCERTAIN",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R5b_GAP",
+            "parentId": "Q5b_DECISION",
+            "type": "reflection",
+            "text": "You can see they worked hard, but the gap feels too big. That's discouraging. But notice: you see the gap. That means you could close it with effort. It's not impossible — it's just longer than you'd like.",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R5b_FIXED",
+            "parentId": "Q5b_DECISION",
+            "type": "reflection",
+            "text": "You believe in fixed talent. That's a story you're telling yourself — one that lets you off the hook from trying. But skills are built, not born. Everyone started where you are.",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R5b_UNCERTAIN",
+            "parentId": "Q5b_DECISION",
+            "type": "reflection",
+            "text": "You're uncertain. That's actually honest. The truth is probably both: they have some natural affinity, but they also put in work. What you can control is the work part.",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "Q5c_JEALOUS",
+            "parentId": "Q5_DECISION",
+            "type": "question",
+            "text": "You felt jealous. Was it pure envy, or was it mixed with admiration?",
+            "options": [
+                "A) Mostly envy. I want what they have",
+                "B) Both. I admire them but also wish I had their success",
+                "C) Mostly admiration. I want to learn from them"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q5c_DECISION",
+            "parentId": "Q5c_JEALOUS",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R5c_ENVIOUS;answer=B:R5c_MIXED;answer=C:R5c_ADMIRING",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R5c_ENVIOUS",
+            "parentId": "Q5c_DECISION",
+            "type": "reflection",
+            "text": "Pure envy focuses on what they have that you don't. That's self-centric: comparing your insides to their outsides. What if you asked them how they got there, instead of resenting them for having it?",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "R5c_MIXED",
+            "parentId": "Q5c_DECISION",
+            "type": "reflection",
+            "text": "You admire them and want their success. That's honest. The question is: does the admiration motivate you to work toward it, or does the envy paralyze you?",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "R5c_ADMIRING",
+            "parentId": "Q5c_DECISION",
+            "type": "reflection",
+            "text": "You're inspired by their work and want to learn. That's turning potential resentment into connection. That's other-centric thinking — they're not a threat, they're a teacher.",
+            "options": [],
+            "target": "Q6_INTERNSHIP_FAVOR",
+            "signal": "axis3:other"
+        },
+        {
+            "id": "Q6_INTERNSHIP_FAVOR",
+            "parentId": null,
+            "type": "question",
+            "text": "A friend asked you to help them get into an internship opportunity. The rule says you need to be a club member first, but they haven't joined. You got in through a friend's referral. What was your first instinct?",
+            "options": [
+                "A) I should help them — the system's already flexible, and they're my friend",
+                "B) I can't help them cut in line. There are people waiting who followed the rules",
+                "C) I wanted to help, but I'm not sure what's actually fair"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q6_DECISION",
+            "parentId": "Q6_INTERNSHIP_FAVOR",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:Q6a_HELP;answer=B:Q6b_FAIR;answer=C:Q6c_UNSURE",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q6a_HELP",
+            "parentId": "Q6_DECISION",
+            "type": "question",
+            "text": "You wanted to help because the system is flexible anyway. If everyone who got in early thought that way, what would happen to the rule?",
+            "options": [
+                "A) Fair point. Rules exist for a reason. I shouldn't bend them",
+                "B) But that's how the world works. Everyone uses connections",
+                "C) I didn't think about it that way. I was just focused on helping them"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q6a_DECISION",
+            "parentId": "Q6a_HELP",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R6a_REALIZED;answer=B:R6a_CYNICAL;answer=C:R6a_BLIND",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R6a_REALIZED",
+            "parentId": "Q6a_DECISION",
+            "type": "reflection",
+            "text": "You realized the contradiction: if everyone bends the rules, there's no rule. You can see how your action affects others, even people you don't know. That's thinking beyond yourself.",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis2:contribution"
+        },
+        {
+            "id": "R6a_CYNICAL",
+            "parentId": "Q6a_DECISION",
+            "type": "reflection",
+            "text": "You accept that everyone plays the game. That's cynical but honest. But notice: you don't feel good about it. Otherwise, why are you reflecting on it now?",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "R6a_BLIND",
+            "parentId": "Q6a_DECISION",
+            "type": "reflection",
+            "text": "You were focused on helping your friend and didn't think about others. That's understandable — your friend's need was right in front of you. But fairness is about people you don't see too.",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis3:self"
+        },
+        {
+            "id": "Q6b_FAIR",
+            "parentId": "Q6_DECISION",
+            "type": "question",
+            "text": "You chose fairness over helping your friend. Did you tell them no, or did you soften it?",
+            "options": [
+                "A) I was honest about why I couldn't help",
+                "B) I said no but felt guilty",
+                "C) I made an excuse to avoid the real conversation"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q6b_DECISION",
+            "parentId": "Q6b_FAIR",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R6b_HONEST;answer=B:R6b_GUILTY;answer=C:R6b_AVOIDED",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R6b_HONEST",
+            "parentId": "Q6b_DECISION",
+            "type": "reflection",
+            "text": "You were honest. That's hard — especially with a friend. You chose fairness and communicated clearly. That's both contribution (fairness) and other-centric (respecting their right to know the truth).",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis2:contribution"
+        },
+        {
+            "id": "R6b_GUILTY",
+            "parentId": "Q6b_DECISION",
+            "type": "reflection",
+            "text": "You owned the hard choice and felt the cost. That guilt is a good sign — it means you care about them. But you also cared about fairness. That's holding two truths at once.",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis2:contribution"
+        },
+        {
+            "id": "R6b_AVOIDED",
+            "parentId": "Q6b_DECISION",
+            "type": "reflection",
+            "text": "You avoided the real conversation. You chose fairness in principle but avoided the discomfort of telling them. That's entitlement: wanting to be fair without paying the cost of that choice.",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis2:entitlement"
+        },
+        {
+            "id": "Q6c_UNSURE",
+            "parentId": "Q6_DECISION",
+            "type": "question",
+            "text": "You were unsure what was fair. When you're unsure like that, what do you usually do?",
+            "options": [
+                "A) I ask someone I trust — a mentor, parent, friend",
+                "B) I stay stuck until the moment passes and the decision is made for me",
+                "C) I go with my gut feeling"
+            ],
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "Q6c_DECISION",
+            "parentId": "Q6c_UNSURE",
+            "type": "decision",
+            "text": "",
+            "options": "answer=A:R6c_SEEK;answer=B:R6c_STUCK;answer=C:R6c_INSTINCT",
+            "target": null,
+            "signal": null
+        },
+        {
+            "id": "R6c_SEEK",
+            "parentId": "Q6c_DECISION",
+            "type": "reflection",
+            "text": "You seek perspective when you're unsure. That's wisdom — you know you don't have all the answers. It's internal locus (you're taking the responsibility to decide) combined with other-centric thinking (you're open to others' views).",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "R6c_STUCK",
+            "parentId": "Q6c_DECISION",
+            "type": "reflection",
+            "text": "You stay stuck until circumstances decide for you. That's external locus — you're letting the situation resolve itself instead of taking responsibility. What would it take to decide anyway, even imperfectly?",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis1:external"
+        },
+        {
+            "id": "R6c_INSTINCT",
+            "parentId": "Q6c_DECISION",
+            "type": "reflection",
+            "text": "You trust your gut. That's internal locus — you have instincts and you follow them. But sometimes gut instincts need reality-checking. What's your gut telling you about this situation?",
+            "options": [],
+            "target": "SUMMARY",
+            "signal": "axis1:internal"
+        },
+        {
+            "id": "SUMMARY",
+            "parentId": null,
+            "type": "summary",
+            "text": "Here's what your day revealed:\n\nOn AGENCY: You see your choices — sometimes clearly, sometimes through the guilt or confusion. You know when you've acted and when you've deferred. That's half the battle.\n\nOn CONTRIBUTION: You balance between helping the people right in front of you and thinking about fairness to people you don't see. That tension is real. Both matter.\n\nOn RADIUS: You move between self-focus (your growth, your needs) and other-focus (your friend, your mom, the system). The healthiest path is realizing they're not either/or — they're both.\n\nTomorrow, notice one moment where you could choose agency over deferral. One moment where you could think about fairness, not just kindness. One moment where you could widen your view beyond your own experience.\n\nThat's reflection becoming change.",
+            "options": [],
+            "target": "END",
+            "signal": null
+        },
+        {
+            "id": "END",
+            "parentId": "SUMMARY",
+            "type": "end",
+            "text": "See you tomorrow.",
+            "options": [],
+            "target": null,
+            "signal": null
+        }
+    ]
+}
